@@ -76,7 +76,7 @@ function AddTask({ searchParams }) {
     <div className='grid grid-cols-12'>
       <div className="col col-span-4 col-start-5 p-5">
         <div className='my-8 flex justify-center'>
-          <Image src={loginSvg} alt="" style={{ width: "50%" }} />
+          <Image src={loginSvg} alt="" width={0} height={0} style={{ width: "50%" }} />
         </div>
         <h1 className='text-3xl text-center'>{searchParams?.id ? "Update" : "Add"} your task here</h1>
         <form onSubmit={handleSubmitTask}>

@@ -56,7 +56,7 @@ function Signup() {
       <h1 className='text-4xl text-center underline'>Signup Here</h1>
       <div className=" p-5 flex justify-center">
         <div className='mr-4 flex justify-center'>
-          <Image src={signupSvg} alt="" style={{ width: "70%" }} />
+          <Image src={signupSvg} alt="" width={0} height={0} style={{ width: "70%" }} />
         </div>
         <form className="w-[30%]" onSubmit={handleSubmit}>
           <div className="mt-3">
