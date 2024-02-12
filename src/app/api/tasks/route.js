@@ -1,6 +1,8 @@
 import { getResponseMessage } from "@/helper/responseMessage"
 import { Tasks } from "@/models/task"
+import { User } from "@/models/users"
 import { NextResponse } from "next/server"
+import jwt from "jsonwebtoken"
 
 // get all tasks
 export const GET = async (req) => {
@@ -17,9 +19,13 @@ export const GET = async (req) => {
 
 // create tasks
 export const POST = async (req) => {
+  const authToken = req.cookies.get("authToken")?.value
+
   try {
+    const token = jwt.verify(authToken, process.env.JWT_KEY)
+    const user = await User.findById({ _id: token._id })
     const body = await req.json()
-    const createTask = await Tasks.create(body)
+    const createTask = await Tasks.create({ ...body, userId: user?._id, auther:user?.name  })
 
     return NextResponse.json({
       status: 201,

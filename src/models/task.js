@@ -22,6 +22,10 @@ const taskSchema = new mongoose.Schema({
   userId: {
     type: mongoose.ObjectId,
     required: true
+  },
+  auther: {
+    type: String,
+    required: true
   }
 })
 

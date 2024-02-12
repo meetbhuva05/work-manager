@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
   about: {
     type: String
   },
-  progileUrl: {
+  profileURL: {
     type: String
   }
 }, {

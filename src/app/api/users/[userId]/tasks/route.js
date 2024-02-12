@@ -8,6 +8,7 @@ export const GET = async (req, { params }) => {
   try {
     const tasks = await Tasks.find({ userId: userId })
     return NextResponse.json({
+      success: true,
       data: tasks
     })
   } catch (error) {
