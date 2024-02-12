@@ -11,7 +11,7 @@ export const GET = async (req) => {
       success: false
     })
   }
-  const token = jwt.verify(authToken, process.env.JWT_KEY)
+  const token = await jwt.verify(authToken, process.env.JWT_KEY)
 
   const user = await User.findById({ _id: token._id })
 

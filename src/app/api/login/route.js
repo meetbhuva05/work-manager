@@ -17,14 +17,14 @@ export const POST = async (req) => {
       throw new Error("Invalid login Credentials")
     }
 
-    const token = jwt.sign({ _id: user._id, name: user.name }, process.env.JWT_KEY)
+    const token = await jwt.sign({ _id: user._id, name: user.name }, process.env.JWT_KEY)
 
-    const response = NextResponse.json({
+    const response = await NextResponse.json({
       status: 201,
       data: user,
       success: true
     })
-    response.cookies.set("authToken", token, {
+    await response.cookies.set("authToken", token, {
       expiresIn: "1d",
       httpOnly: true
     })

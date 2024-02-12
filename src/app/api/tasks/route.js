@@ -22,7 +22,7 @@ export const POST = async (req) => {
   const authToken = req.cookies.get("authToken")?.value
 
   try {
-    const token = jwt.verify(authToken, process.env.JWT_KEY)
+    const token = await jwt.verify(authToken, process.env.JWT_KEY)
     const user = await User.findById({ _id: token._id })
     const body = await req.json()
     const createTask = await Tasks.create({ ...body, userId: user?._id, auther:user?.name  })
