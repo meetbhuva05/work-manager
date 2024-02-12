@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
-import signupSvg from "../../assets/signUp.svg"
 
 function Signup() {
   const router = useRouter()
@@ -56,7 +55,7 @@ function Signup() {
       <h1 className='text-4xl text-center underline'>Signup Here</h1>
       <div className=" p-5 flex justify-center">
         <div className='mr-4 flex justify-center'>
-          <Image src={signupSvg} alt="" width={0} height={0} style={{ width: "70%" }} />
+          <Image src={"/signUp.svg"} alt="" width={0} height={0} style={{ width: "70%" }} />
         </div>
         <form className="w-[30%]" onSubmit={handleSubmit}>
           <div className="mt-3">
